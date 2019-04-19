@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+    <tracerFactory >
+      <match assemblyName="System.ServiceModel" className="System.ServiceModel.Dispatcher.DispatchOperationRuntime">
+        <exactMethodMatcher methodName="InvokeBegin" />
+      </match>
+    </tracerFactory>
+    <tracerFactory >
+      <match assemblyName="System.Data.Services" className="System.Data.Services.RequestUriProcessor">
+        <exactMethodMatcher methodName="ProcessRequestUri" />
+      </match>
+    </tracerFactory>
+  </instrumentation>
+</extension>
